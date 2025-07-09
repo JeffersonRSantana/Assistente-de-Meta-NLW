@@ -1,124 +1,99 @@
-# HTML
-- HypertText
-    - Textos puros, livros, revistas, jornais;
-    - Links: acessar outros documentos;
-    - Imagens, vídeos, áudios;
-- Markup
-    - Marcação
-    - Tags: <a> Link </a>
-    - Atributos: <a href="https://rocketseat.com.br">
-    - Globais: id, class, ...
-- Language
-    - Linguagem
-    - Sintaxe: maneira de escrever
+# 🎮 Assistente de Meta | Projeto NLW da Rocketseat
 
-# HTTP
-- HyperText
-- Transfer
-    - Transferência
-- Protocol
-    - Protocolo
-    - Conjunto de regras
+> Um app inteligente que responde perguntas sobre estratégias, builds e dicas para jogos competitivos — powered by Gemini AI.
 
-# URL
-- Uniform
-    - Uniforme
-- Resource
-    - Recurso
-- Locator
-    - Localizador
-Encontrar um recurso (html, css, js, pdf, jpg, mp4, mpr, ...)
-Endereço
+![Capa do projeto](./assets/logo.png)
 
-# IP
-- Internet
-  - Rede mundial de computadores
-- Protocol
-  - Conjunto de regras
-Endereço do computador
-rocketseat.com.br (domínio)
-123.32.1.23 (ip)
+---
 
-# DNS
-- Domain
-  - Domínio
-- Name
-  - Nome
-- Server
-  - Servidor
+## 🚀 Sobre o Projeto
 
-# CSS
+O **Assistente de Meta** é uma aplicação web desenvolvida durante a **Next Level Week (NLW)** da [Rocketseat](https://rocketseat.com.br/), com foco em IA generativa e interfaces modernas.
 
-- Cascading
-  - Cascata
-  - Regras das escritas
-  - Hierarquia
-  - Especificidade
-- Style
-  - Estilo
-- Sheet
-  - Folha
+Com ele, jogadores podem obter respostas rápidas e atualizadas sobre o meta de jogos como:
 
-De um arquivo que terá na sua sintaxe, declarações, propriedades e valores.
-A partir disso, o HTML é impactado visualmente.
+🎯 Valorant  
+🧙 League of Legends  
+⚔️ Dota 2  
+🔫 CS:GO  
 
-- declaração
-- seletor
-- propriedade e valor
+---
 
-# JS
-- Linguagem de programação
-- Browsers
-- Input -> Process -> Output
-- Variáveis
-- Function
-  - Agrupamento e reuso de código
-  - Sequencia lógica
-  - Saída
-- Gemini (IA): esperar uma resposta
-- Mexer no meu navegador
-- Estrutura de dados
-- Estrutura de decisão
-- Algoritmo: sequencia de passos lógica, de maneira ordenada, a fim de chegar a alguma conclusão (limitada)
-- Lógica (Pensamento computacional)
-  - Abstração
-  - Decomposição
-  - Algoritmo
-  - Reconhecimento de padrão
-- Tipos de dados
-  - Number (números)
-  - String (textos) (" ",  ' ',  ` `)
-  - Boolean: true | false
-  - Objects
-  - ...
+## 🧠 O que ele faz?
 
-# DOM
-- Document
-- Object
-- Model
+- Recebe perguntas sobre estratégias, builds ou dicas.
+- Usa a API do Gemini (Google AI) para gerar respostas com base no patch atual.
+- Converte a resposta em Markdown para HTML.
+- Exibe tudo com uma interface responsiva e estilizada.
 
-# API
-- Application
-- Programming
-- Interface
-- JSON: JavaScript Object Notation
+---
 
-# CDN
-- Content
-- Delivery
-- Network
+## 💻 Tecnologias Utilizadas
 
-# LLM
-- Large
-- Language
-- Model
-- Gemini, OpenAI (chatGPT), Anthropic (Claude) ...
+| Categoria     | Ferramenta / Linguagem         |
+|---------------|---------------------------------|
+| Estrutura     | HTML5                          |
+| Estilo        | CSS3 (Flexbox, Gradientes, Animações) |
+| Lógica        | JavaScript Vanilla             |
+| Markdown      | showdown.js                    |
+| IA            | Gemini API (Google Generative AI) |
 
-# Agentes AI
-- Tools (ferramentas): permitem uso de código, ou apps, ou qualquer informação extra.
-- Melhor contexto
+---
 
-# Engenharia de prompt
-- One shot: uma única pergunta sem muito contexto
-- Few shot: é apresentado exemplos do que se espera
-- Chain of Thought: Cadeia de pensamento para a IA responder gradativamente conforme a instrução.
+## 📸 Interface
+
+<div align="center">
+  <img src="./assets/img-app.png" width="600px" alt="Tela principal do app" />
+</div>
+
+---
+
+## 🧪 Como usar
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/assistente-meta-nlw.git
+
+  
+ ## 🔑 Como obter sua API Key do Gemini
+
+Para que o Assistente de Meta funcione corretamente, você precisa de uma chave de API da plataforma Gemini (Google AI). Siga os passos abaixo:
+
+---
+
+### 2. Acesse o Google AI Studio
+
+👉 Vá para: [https://aistudio.google.com/app/apikey](https://aistudio.google.com/app/apikey)
+
+> Obs: Você precisa estar logado com uma conta Google.
+
+---
+
+### 3. Gere sua chave de API
+
+- Clique no botão **"Create API Key"** (ou "Criar chave de API").
+- Dê um nome para sua chave (ex: "Assistente de Meta").
+- Copie a chave gerada com cuidado — ela será usada no app.
+
+---
+
+### 4. Cole a chave no campo do app
+
+- Abra o Assistente de Meta no navegador.
+- Cole sua chave no campo:  
+  `🔐 Informe a API KEY do Gemini`
+- Agora é só escolher o jogo, digitar sua pergunta e clicar em **Perguntar**!
+
+---
+
+### ⚠️ Importante
+
+- Nunca compartilhe sua chave publicamente.
+- Essa chave dá acesso à sua cota de uso da API Gemini.
+- Se quiser revogar ou criar uma nova, volte ao [AI Studio](https://aistudio.google.com/app/apikey).
+
+---
+
+Pronto! Agora você pode conversar com a IA sobre o meta dos seus jogos favoritos. 🎮✨
+
+Feito com 💜 por Jefferson 📫 [https://www.linkedin.com/in/jeffersonnsaantana/](linkedin)
