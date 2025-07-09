@@ -8,75 +8,155 @@ const form = document.getElementById("form") // Formulário principal
 
 // Função que converte texto em formato Markdown para HTML
 const markdownToHTML = (text) => {
-  // Cria uma nova instância do conversor Showdown
-  // Showdown é uma biblioteca JavaScript para conversão Markdown-HTML
   const converter = new showdown.Converter()
-
-  // Converte o texto Markdown recebido para HTML e retorna o resultado
   return converter.makeHtml(text)
 }
+
 const perguntarAI = async (question, game, apiKey) => {
   const model = "gemini-2.0-flash"
   const geminiURL = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`
-  const pergunta = `
+  // Prompts específicos para cada jogo
+  const prompts = {
+    "League of Legends": `
   ## Especialidade
-  Você é um especialista assistente de meta para o jogo ${game}
-
+  Você é um especialista assistente de meta para o jogo League of Legends.
+  
   ## Tarefa
-  Você deve responder as perguntas do usuário com base no seu conhecimento do jogo, estratégias, build e dicas
-
+  Você deve responder as perguntas do usuário com base no seu conhecimento do jogo, estratégias, builds e dicas.
+  
   ## Regras
   - Se você não sabe a resposta, responda com 'Não sei' e não tente inventar uma resposta.
-  - Se a pergunta não está relacionada ao jogo, responda com 'Essa pergunta não está relacionada ao jogo'
-  - Considere a data atual ${new Date().toLocaleDateString()}
+  - Se a pergunta não está relacionada ao jogo, responda com 'Essa pergunta não está relacionada ao jogo'.
+  - Considere a data atual ${new Date().toLocaleDateString()}.
   - Faça pesquisas atualizadas sobre o patch atual, baseado na data atual, para dar uma resposta coerente.
-  - Nunca responsda itens que vc não tenha certeza de que existe no patch atual.
-
+  - Nunca responda itens que você não tenha certeza que existem no patch atual.
+  
   ## Resposta
-  - Economize na resposta, seja direto e responda no máximo 500 caracteres
-  - Responda em markdown
-  - Não precisa fazer nenhuma saudação ou despedida, apenas responda o que o usuário está querendo.
-
-  ## Exemplo de resposta
-  pergunta do usuário: Melhor build rengar jungle
-  resposta: A build mais atual é: \n\n **Itens:**\n\n coloque os itens aqui.\n\n**Runas:**\n\nexemplo de runas\n\n
-
+  - Seja direto e responda no máximo 500 caracteres.
+  - Responda em markdown.
+  - Não faça saudações nem despedidas.
+  
   ---
-  Aqui está a pergunta do usuário: ${question}
-`
+  Aqui está a pergunta do usuário: ${question}`,
+
+    "Dota 2": `
+  ## Especialidade
+  Você é um especialista assistente de meta para o jogo Dota 2.
+  
+  ## Tarefa
+  Você deve responder as perguntas do usuário com base no seu conhecimento do jogo, estratégias, builds e dicas.
+  
+  ## Regras
+  - Se você não sabe a resposta, responda com 'Não sei' e não tente inventar uma resposta.
+  - Se a pergunta não está relacionada ao jogo, responda com 'Essa pergunta não está relacionada ao jogo'.
+  - Considere a data atual ${new Date().toLocaleDateString()}.
+  - Faça pesquisas atualizadas sobre o patch atual, baseado na data atual, para dar uma resposta coerente.
+  - Nunca responda itens que você não tenha certeza que existem no patch atual.
+  
+  ## Resposta
+  - Seja direto e responda no máximo 500 caracteres.
+  - Responda em markdown.
+  - Não faça saudações nem despedidas.
+  
+  ---
+  Aqui está a pergunta do usuário: ${question}`,
+
+    "CS:GO": `
+  ## Especialidade
+  Você é um especialista assistente de meta para o jogo CS:GO.
+  
+  ## Tarefa
+  Você deve responder as perguntas do usuário com base no seu conhecimento do jogo, estratégias, armas, posicionamento e dicas.
+  
+  ## Regras
+  - Se você não sabe a resposta, responda com 'Não sei' e não tente inventar uma resposta.
+  - Se a pergunta não está relacionada ao jogo, responda com 'Essa pergunta não está relacionada ao jogo'.
+  - Considere a data atual ${new Date().toLocaleDateString()}.
+  - Faça pesquisas atualizadas sobre o meta atual, baseado na data atual, para dar uma resposta coerente.
+  
+  ## Resposta
+  - Seja direto e responda no máximo 500 caracteres.
+  - Responda em markdown.
+  - Não faça saudações nem despedidas.
+  
+  ---
+  Aqui está a pergunta do usuário: ${question}`,
+
+    Valorant: `
+  ## Especialidade
+  Você é um especialista assistente de meta para o jogo Valorant.
+  
+  ## Tarefa
+  Você deve responder as perguntas do usuário com base no seu conhecimento do jogo, estratégias, agentes, armas e dicas.
+  
+  ## Regras
+  - Se você não sabe a resposta, responda com 'Não sei' e não tente inventar uma resposta.
+  - Se a pergunta não está relacionada ao jogo, responda com 'Essa pergunta não está relacionada ao jogo'.
+  - Considere a data atual ${new Date().toLocaleDateString()}.
+  - Faça pesquisas atualizadas sobre o meta atual, baseado na data atual, para dar uma resposta coerente.
+  
+  ## Resposta
+  - Seja direto e responda no máximo 500 caracteres.
+  - Responda em markdown.
+  - Não faça saudações nem despedidas.
+  
+  ---
+  Aqui está a pergunta do usuário: ${question}`,
+  }
+
+  // Seleciona o prompt correto conforme o jogo; se não existir, usa um genérico
+  const pergunta =
+    prompts[game] ||
+    `
+  ## Especialidade
+  Você é um especialista assistente de meta para o jogo ${game}.
+  
+  ## Tarefa
+  Você deve responder as perguntas do usuário com base no seu conhecimento do jogo, estratégias, builds e dicas.
+  
+  ## Regras
+  - Se você não sabe a resposta, responda com 'Não sei' e não tente inventar uma resposta.
+  - Se a pergunta não está relacionada ao jogo, responda com 'Essa pergunta não está relacionada ao jogo'.
+  - Considere a data atual ${new Date().toLocaleDateString()}.
+  - Faça pesquisas atualizadas sobre o patch atual, baseado na data atual, para dar uma resposta coerente.
+  
+  ## Resposta
+  - Seja direto e responda no máximo 500 caracteres.
+  - Responda em markdown.
+  - Não faça saudações nem despedidas.
+  
+  ---
+  Aqui está a pergunta do usuário: ${question}`
 
   const contents = [
     {
       role: "user",
-      parts: [
-        {
-          text: pergunta,
-        },
-      ],
+      parts: [{ text: pergunta }],
     },
   ]
 
-  const tools = [
-    {
-      google_search: {},
-    },
-  ]
+  const tools = [{ google_search: {} }]
 
-  // CHAMADA API
   const response = await fetch(geminiURL, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      contents,
-      tools,
-    }),
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ contents, tools }),
   })
 
+  if (!response.ok) {
+    throw new Error(`Erro na API: ${response.status} ${response.statusText}`)
+  }
+
   const data = await response.json()
-  return data.candidates[0].content.parts[0].text
+  const resposta = data?.candidates?.[0]?.content?.parts?.[0]?.text
+
+  if (!resposta) {
+    throw new Error("A API não retornou uma resposta válida.")
+  }
+
+  return resposta
 }
+
 
 // FUNÇÃO PARA ENVIAR O FORMULÁRIO
 const enviarFormulario = async (event) => {
@@ -85,8 +165,8 @@ const enviarFormulario = async (event) => {
   const game = gameSelect.value
   const question = questionInput.value
 
-  if (apiKey == "" || game == "" || question == "") {
-    alert("Por favor, preencha todos os campos")
+  if (apiKey.trim() === "" || game.trim() === "" || question.trim() === "") {
+    alert("Por favor, preencha todos os campos ")
     return
   }
 

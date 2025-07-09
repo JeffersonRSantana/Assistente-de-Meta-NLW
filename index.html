@@ -29,10 +29,11 @@
               required
             />
 
-            <select id="gameSelect">
+            <select id="gameSelect" aria-label="Escolha o jogo">
               <option value="">Selecione um jogo</option>
               <option value="valorant">Valorant</option>
               <option value="lol">League of Legends</option>
+              <option value="Dota 2">Dota 2</option>
               <option value="cs">CS:GO</option>
             </select>
 
@@ -42,7 +43,7 @@
               placeholder="Ex: Melhor build para ADC..."
               required
             />
-            <button id="askButton">Perguntar</button>
+            <button id="askButton" type="submit">Perguntar</button>
           </form>
 
           <div id="aiResponse" class="hidden">
