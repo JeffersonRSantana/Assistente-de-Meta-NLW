@@ -96,4 +96,4 @@ Para que o Assistente de Meta funcione corretamente, você precisa de uma chave 
 
 Pronto! Agora você pode conversar com a IA sobre o meta dos seus jogos favoritos. 🎮✨
 
-Feito com 💜 por Jefferson 📫 [https://www.linkedin.com/in/jeffersonnsaantana/](linkedin)
+Feito com 💜 por Jefferson 📫 [Linkedin](https://www.linkedin.com/in/jeffersonnsaantana/)
