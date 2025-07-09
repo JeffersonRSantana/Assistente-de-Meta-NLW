@@ -42,9 +42,10 @@ main {
 section {
   background-image: linear-gradient(
     90deg,
-    #9572fc 0%, /* Direção horizontal do gradiente */
-    #43e7ad 50%,/* Roxo vibrante no início */
-    #e2d45c 100% /* Verde água no meio */ /* Amarelo dourado no final */
+    #9572fc 0%,
+    /* Direção horizontal do gradiente */ #43e7ad 50%,
+    /* Roxo vibrante no início */ #e2d45c 100% /* Verde água no meio */
+      /* Amarelo dourado no final */
   );
   border-radius: 0.625rem; /* Cantos arredondados  */
   padding-top: 4px; /* Pequeno espaço para o gradiente aparecer */
@@ -67,7 +68,6 @@ section p {
   letter-spacing: -0.18px; /* Espaçamento sutil entre letras */
   color: #a1a1aa; /* Cor cinza claro para melhor legibilidade */
 }
-
 
 /* Configuração inicial para animação */
 main section {
@@ -111,7 +111,6 @@ input {
   flex: 1; /* Expande para preencher o espaço */
 }
 
-
 button {
   width: 100%; /* Ocupa toda a largura disponível */
   border: 0; /* Remove bordas padrão */
@@ -130,9 +129,58 @@ button {
   transition: all 0.3s; /* Suaviza todas as transições em 0.3 segundos */
 }
 
-/* ✨ EFEITOS DE HOVER (QUANDO O MOUSE PASSA POR CIMA) */
+/* EFEITOS DE HOVER (QUANDO O MOUSE PASSA POR CIMA) */
 button:hover {
   cursor: pointer; /* Muda cursor para indicar elemento clicável */
   transform: translateY(-2px); /* Efeito de levitação (sobe 2 pixels) */
   box-shadow: 0 5px 1rem rgba(255, 248, 107, 0.2); /* Sombra dourada sutil */
+}
+/* ESTILOS PARA BOTÃO DESABILITADO */
+button:disabled {
+  transition: initial; /* Remove transições quando desabilitado */
+  transform: initial; /* Remove transformações (como levitação) */
+  box-shadow: initial; /* Remove sombras */
+  cursor: not-allowed; /* Mostra cursor de "não permitido" (círculo com barra) */
+  color: black; /* Cor do texto alterada para preto */
+}
+
+/* ESTILOS PARA ÁREA DE RESPOSTA DA IA */
+#aiResponse {
+  background: rgba(
+    0,
+    0,
+    0,
+    0.4
+  ); /* Fundo preto semi-transparente (40% opacidade) */
+  border-radius: 0.5rem; /* Cantos arredondados (8px) */
+  padding: 1.25rem; /* Espaçamento interno (20px) */
+  border-left: 4px solid #43e7ad; /* Borda esquerda verde água como destaque */
+}
+
+/*  ESTILOS PARA LISTAS DENTRO DA RESPOSTA */
+#aiResponse ul {
+  padding-left: 1.5rem; /* Recuo para listas (24px) */
+  opacity: 0.8; /* Leve transparência para itens de lista */
+}
+
+/*  ESTILOS PARA PARÁGRAFOS DENTRO DA RESPOSTA */
+#aiResponse p {
+  color: white; /* Garante texto branco legível no fundo escuro */
+}
+
+/*  ANIMAÇÃO DE CARREGAMENTO */
+.loading {
+  animation: pulse 1s infinite; /* Animação "pulsar" que repete infinitamente */
+}
+
+/*  CLASSE PARA ELEMENTOS OCULTOS */
+.hidden {
+  display: none; /* Completamente remove o elemento do fluxo da página */
+}
+
+/*  ANIMAÇÃO DE PULSAÇÃO (USADA PELA CLASSE .loading) */
+@keyframes pulse {
+  50% {
+    opacity: 0.5; /* No meio da animação, reduz opacidade para 50% */
+  }
 }
