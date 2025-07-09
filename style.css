@@ -1,0 +1,10 @@
+
+
+body {
+  background-image: url("./assets/bg.jpg"); /*definindo uma imagem*/
+  background-repeat: no-repeat; /*keyword*/
+  background-size: 100% auto; /*tamanho do backgound: width e height*/
+  background-position:top center; /*vertical horizontal*/
+  background-color:#121214; /* cor Hexadecimal*/
+  color: white; /**/
+}
