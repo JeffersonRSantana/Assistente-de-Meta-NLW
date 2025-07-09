@@ -1,10 +1,138 @@
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   background-image: url("./assets/bg.jpg"); /*definindo uma imagem*/
   background-repeat: no-repeat; /*keyword*/
   background-size: 100% auto; /*tamanho do backgound: width e height*/
-  background-position:top center; /*vertical horizontal*/
-  background-color:#121214; /* cor Hexadecimal*/
-  color: white; /**/
+  background-position: top center; /*vertical horizontal*/
+  background-color: #121214; /* cor Hexadecimal*/
+  color: white;
+}
+
+/* Define a tipografia base para toda a página */
+body *,
+:root {
+  font-family: "Inter", sans-serif; /* Usa a fonte Inter com fallback para sans-serif */
+  line-height: 160%; /* Espaçamento generoso de 1.6 entre linhas */
+}
+
+/* Estilização do cabeçalho principal */
+header {
+  padding-top: 2rem; /* Adiciona 32px de espaço no topo */
+  text-align: center; /* Centraliza todo o conteúdo horizontalmente */
+}
+
+/* Controle da imagem do logo */
+header img {
+  width: 15rem; /* Largura fixa de 15rem (240px se root for 16px) */
+}
+
+/* Container do conteúdo principal */
+main {
+  max-width: 36rem; /* Largura máxima de 35rem (560px) */
+  width: 90%; /* Ocupa 90% da largura em telas menores */
+  margin: 3rem auto; /* 3rem (48px) de margem superior/inferior e centralizado */
+}
+
+/* Moldura colorida para seções */
+section {
+  background-image: linear-gradient(
+    90deg,
+    #9572fc 0%, /* Direção horizontal do gradiente */
+    #43e7ad 50%,/* Roxo vibrante no início */
+    #e2d45c 100% /* Verde água no meio */ /* Amarelo dourado no final */
+  );
+  border-radius: 0.625rem; /* Cantos arredondados  */
+  padding-top: 4px; /* Pequeno espaço para o gradiente aparecer */
+}
+
+/* Conteúdo interno das seções */
+section > div {
+  padding: 2rem; /* Espaçamento interno de 32px */
+  padding-top: 1.5rem; /* 24px no topo para ajuste visual */
+  border-radius: 0.5rem; /* Cantos levemente arredondados*/
+  background-color: #2a2634; /* Fundo escuro */
+}
+
+/* Tipografia das seções */
+section h2 {
+  letter-spacing: -0.47px; /* Leve condensação das letras */
+}
+
+section p {
+  letter-spacing: -0.18px; /* Espaçamento sutil entre letras */
+  color: #a1a1aa; /* Cor cinza claro para melhor legibilidade */
+}
+
+
+/* Configuração inicial para animação */
+main section {
+  opacity: 0; /* Inicia totalmente transparente */
+  transform: translateY(2rem); /* Começa 32px abaixo da posição final */
+
+  /* Configuração da animação */
+  animation-name: appear; /* Nome da animação definida abaixo */
+  animation-duration: 700ms; /* Duração de 0.7 segundos */
+  animation-fill-mode: forwards; /* Mantém o estado final após animação */
+}
+
+/* Definição da animação de aparecer */
+@keyframes appear {
+  100% {
+    opacity: 1; /* Torna-se totalmente visível */
+    transform: translateY(0); /* Retorna à posição original */
+  }
+}
+/* Layout do formulário */
+form {
+  display: flex; /* Organização flexível */
+  gap: 0.85rem; /* Espaço entre elementos */
+  flex-wrap: wrap; /* Responsivo para telas pequenas */
+  margin: 1.25rem 0; /* Margem vertical equilibrada */
+}
+
+/* Campos de entrada estilizados */
+input,
+select {
+  all: unset; /* Remove estilos nativos */
+  border: 2px solid #9147ff; /* Borda roxa marcante */
+  border-radius: 0.5rem; /* Cantos arredondados */
+  padding: 0.675rem; /* Espaçamento interno confortável */
+  font-size: 0.875rem; /* Tamanho de fonte legível */
+  background-color: #00000066; /* Fundo escuro translúcido */
+}
+
+/* Comportamento do input principal */
+input {
+  flex: 1; /* Expande para preencher o espaço */
+}
+
+
+button {
+  width: 100%; /* Ocupa toda a largura disponível */
+  border: 0; /* Remove bordas padrão */
+  background-image: linear-gradient(
+    245deg,
+    /* Ângulo de inclinação do gradiente */ #9572fc 0%,
+    /* Roxo vibrante no início */ #43e7ad 50%,
+    /* Verde água no meio */ #e2d45c 100% /* Amarelo dourado no final */
+  );
+  padding: 0.675rem; /* Espaçamento interno confortável (≈11px) */
+  border-radius: 0.5rem; /* Cantos arredondados (8px) */
+  font-weight: bold; /* Texto em negrito para destaque */
+  text-transform: uppercase; /* Transforma texto em maiúsculas */
+  letter-spacing: 0.12px; /* Espaçamento sutil entre letras */
+
+  transition: all 0.3s; /* Suaviza todas as transições em 0.3 segundos */
+}
+
+/* ✨ EFEITOS DE HOVER (QUANDO O MOUSE PASSA POR CIMA) */
+button:hover {
+  cursor: pointer; /* Muda cursor para indicar elemento clicável */
+  transform: translateY(-2px); /* Efeito de levitação (sobe 2 pixels) */
+  box-shadow: 0 5px 1rem rgba(255, 248, 107, 0.2); /* Sombra dourada sutil */
 }
