@@ -50,9 +50,14 @@ Com ele, jogadores podem obter respostas rápidas e atualizadas sobre o meta de 
 
 ## 🧪 Como usar
 
+👉 Vá para: [Link](https://jeffersonrsantana.github.io/Assistente-de-Meta-NLW/)
+
+ou
+
 1. Clone o repositório:
    ```bash
    git clone https://github.com/seu-usuario/assistente-meta-nlw.git
+  
 
   
  ## 🔑 Como obter sua API Key do Gemini
