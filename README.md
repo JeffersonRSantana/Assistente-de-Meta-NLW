@@ -34,7 +34,7 @@ Com ele, jogadores podem obter respostas rápidas e atualizadas sobre o meta de 
 |---------------|---------------------------------|
 | Estrutura     | HTML5                          |
 | Estilo        | CSS3 (Flexbox, Gradientes, Animações) |
-| Lógica        | JavaScript Vanilla             |
+| Lógica        | JavaScript             |
 | Markdown      | showdown.js                    |
 | IA            | Gemini API (Google Generative AI) |
 
