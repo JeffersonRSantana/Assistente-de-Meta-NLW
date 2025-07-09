@@ -148,7 +148,7 @@ const perguntarAI = async (question, game, apiKey) => {
   }
 
   const data = await response.json()
-  const resposta = data?.candidates?.[0]?.content?.parts?.[0]?.text
+  const resposta = data?.candidates?.[0]?.content?.parts?.[0]?.text || "Resposta não encontrada."
 
   if (!resposta) {
     throw new Error("A API não retornou uma resposta válida.")
